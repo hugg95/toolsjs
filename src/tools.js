@@ -1,3 +1,10 @@
+/**
+ * An utility functions collection of javascript.
+ * @author victor.li
+ * @date 2015/01/22
+ * @version 1.0.0
+ * Released under terms of MIT lincense.
+ */
 'use strict'
 var Tools = (function(global, undefined) {
 
