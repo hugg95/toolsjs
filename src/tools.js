@@ -33,7 +33,7 @@ var Tools = (function(global, undefined) {
     // 找出关键词数组中的每个关键词在字符串中所有匹配的位置
     function _mark_str_arr(substr_arr, str) {
         var index = [];
-        for (var i = 0; i < substr_arr.length(); i++) {
+        for (var i = 0; i < substr_arr.length; i++) {
             var _index = {key: substr_arr[i], index: []},
                 sublen = substr_arr[i].length,
                 regexp = new RegExp(substr_arr[i], 'g');
