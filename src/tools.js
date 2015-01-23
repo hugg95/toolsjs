@@ -6,6 +6,7 @@
  * Released under terms of MIT lincense.
  */
 'use strict'
+
 var Tools = (function(global, undefined) {
 
     // 获得对象的实际类型
@@ -26,7 +27,7 @@ var Tools = (function(global, undefined) {
         return type;
     }
 
-    // 找出关键词在字符串中所有的匹配位置
+    // 找出关键词在字符串中所有的匹配起始位置
     function _mark_str(substr, str) {
         var index = [],
             sublen = substr.length,
@@ -37,7 +38,7 @@ var Tools = (function(global, undefined) {
         return index;
     }
 
-    // 找出关键词数组中的每个关键词在字符串中所有匹配的位置
+    // 找出关键词数组中的每个关键词在字符串中所有匹配的起始位置
     function _mark_str_arr(substr_arr, str) {
         var index = [];
         for (var i = 0; i < substr_arr.length; i++) {
@@ -62,4 +63,5 @@ var Tools = (function(global, undefined) {
         },
         _typeof: _typeof
     };
+
 })(window);
