@@ -11,20 +11,35 @@ var Tools = (function(global, undefined) {
 
     // 获得对象的实际类型
     function _typeof(obj) {
-        if (typeof obj === 'undefined') {
+        if (!Object.constructor.name) {
+            return _compatibleTypeof(obj);
+        }
+
+        return _mordonTypeof(obj);
+    }
+
+    // typeof functtion for mordon internet explorer
+    function _mordonTypeof(obj) {
+        if (typeof obj === 'undefined')
             return 'undefined';
-        }
-        if (obj === null) {
+        if (obj === null)
             return 'null';
-        }
         var _obj = obj,
             type = _obj.constructor.name;
-        if (type === 'Number') {
-            if (isNaN(_obj)) {
-                return 'NaN';
-            }
-        }
+        if (type === 'Number' && isNaN(_obj))
+            return 'NaN';
+
         return type;
+    }
+
+    // IE compatible
+    function _compatibleTypeof(obj) {
+        if (typeof obj === 'undefined')
+            return 'undefined';
+        if (obj === null)
+            return 'null';
+
+
     }
 
     // 找出关键词在字符串中所有的匹配起始位置
