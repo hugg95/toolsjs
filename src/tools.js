@@ -38,7 +38,21 @@ var Tools = (function(global, undefined) {
             return 'undefined';
         if (obj === null)
             return 'null';
-
+        var _obj = obj,
+            type = {}.toString.call(_obj);
+        if (type.search(/Array/) > -1)
+            return 'Array';
+        if (type.search(/String/) > -1)
+            return 'String';
+        if (type.search(/Number/) > -1 && isNaN(_obj)) {
+            return 'NaN';
+        } else if (type.search(/Number/) > -1) {
+            return 'Number';
+        }
+        if (type.search(/Date/) > -1)
+            return 'Date';
+        if (type.search(/RegExp/) > -1)
+            return 'RegExp';
 
     }
 
