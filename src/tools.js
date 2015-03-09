@@ -18,7 +18,7 @@ var Tools = (function(global, undefined) {
         return _mordonTypeof(obj);
     }
 
-    // typeof functtion for mordon internet explorer
+    // typeof function for modern internet explorer
     function _mordonTypeof(obj) {
         if (typeof obj === 'undefined')
             return 'undefined';
