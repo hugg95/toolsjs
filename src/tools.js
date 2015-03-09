@@ -9,17 +9,17 @@
 
 var Tools = (function(global, undefined) {
 
-    // 获得对象的实际类型
+    // get object's runtime type
     function _typeof(obj) {
         if (!Object.constructor.name) {
             return _compatibleTypeof(obj);
         }
 
-        return _mordonTypeof(obj);
+        return _modernTypeof(obj);
     }
 
     // typeof function for modern internet explorer
-    function _mordonTypeof(obj) {
+    function _modernTypeof(obj) {
         if (typeof obj === 'undefined')
             return 'undefined';
         if (obj === null)
