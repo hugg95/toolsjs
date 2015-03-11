@@ -9,17 +9,23 @@
 
 var Tools = (function(global, undefined) {
 
-    // get object's runtime type
+    /**
+     * get object's runtime type
+     */
     function _typeof(obj) {
-        if (!Object.constructor.name) {
+
+        if (!Object.constructor.name)
             return _compatibleTypeof(obj);
-        }
 
         return _modernTypeof(obj);
-    }
 
-    // typeof function for modern internet explorer
+    };
+
+    /**
+     * typeof function for modern internet explorer
+     */
     function _modernTypeof(obj) {
+
         if (typeof obj === 'undefined')
             return 'undefined';
         if (obj === null)
@@ -30,10 +36,14 @@ var Tools = (function(global, undefined) {
             return 'NaN';
 
         return type;
-    }
 
-    // IE compatible
+    };
+
+    /**
+     * IE compatible
+     */
     function _compatibleTypeof(obj) {
+
         if (typeof obj === 'undefined')
             return 'undefined';
         if (obj === null)
@@ -54,10 +64,13 @@ var Tools = (function(global, undefined) {
         if (type.search(/RegExp/) > -1)
             return 'RegExp';
 
-    }
+    };
 
-    // 找出关键词在字符串中所有的匹配起始位置
+    /**
+     * 找出关键词在字符串中所有的匹配起始位置
+     */
     function _mark_str(substr, str, case_sensitive) {
+
         var index = [],
             sublen = substr.length,
             regexp = new RegExp(substr, 'g');
@@ -65,11 +78,16 @@ var Tools = (function(global, undefined) {
         while (regexp.exec(str)) {
             index.push(regexp.lastIndex - sublen);
         }
-        return index;
-    }
 
-    // 找出关键词数组中的每个关键词在字符串中所有匹配的起始位置
+        return index;
+
+    };
+
+    /**
+     * 找出关键词数组中的每个关键词在字符串中所有匹配的起始位置
+     */
     function _mark_str_arr(substr_arr, str, case_sensitive) {
+
         var index = [];
         for (var i = 0; i < substr_arr.length; i++) {
             var _index = {key: substr_arr[i], index: []},
@@ -81,10 +99,45 @@ var Tools = (function(global, undefined) {
             }
             index.push(_index);
         }
+
         return index;
-    }
+
+    };
+
+    /**
+     * determines whether the specified element is in the specified array
+     */
+    function inArray(arr, ele) {
+
+        try {
+            getIEVersion();
+            var i = 0, len = arr.length;
+            for (; i < len; i++) {
+                if (arr[i] === ele)
+                    return true;
+            }
+        } catch (e) {
+            return (arr.indexOf(ele) !== -1);
+        }
+
+        return false;
+    };
+
+    /**
+     * gets version of microsoft internet explorer
+     */
+    function getIEVersion() {
+
+        if (!document.documentMode)
+            throw new Error('The current browser is
+                    not a microsoft internet explorer');
+
+        return 'IE' + document.documentMode;
+
+    };
 
     return {
+
         mark: function(substr, str, case_sensitive) {
             if (_typeof(substr) === 'Array') {
                 return _mark_str_arr(substr, str, case_sensitive);
@@ -92,7 +145,11 @@ var Tools = (function(global, undefined) {
                 return _mark_str(substr, str, case_sensitive);
             }
         },
-        _typeof: _typeof
+        _typeof: _typeof,
+        inArray: inArray,
+        getIEVersion: getIEVersion
+
     };
 
 })(window);
+
