@@ -5,7 +5,7 @@
  * @version 1.0.0
  * Released under terms of MIT lincense.
  */
-'use strict'
+'use strict';
 
 var Tools = (function(global, undefined) {
 
