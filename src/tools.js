@@ -67,7 +67,7 @@ var Tools = (function(global, undefined) {
     };
 
     /**
-     * 找出关键词在字符串中所有的匹配起始位置
+     * find each index of keyword in a string
      */
     function _mark_str(substr, str, case_sensitive) {
 
@@ -84,7 +84,7 @@ var Tools = (function(global, undefined) {
     };
 
     /**
-     * 找出关键词数组中的每个关键词在字符串中所有匹配的起始位置
+     * find each index of keyword in array in a string
      */
     function _mark_str_arr(substr_arr, str, case_sensitive) {
 
@@ -139,11 +139,12 @@ var Tools = (function(global, undefined) {
     return {
 
         mark: function(substr, str, case_sensitive) {
-            if (_typeof(substr) === 'Array') {
+
+            if (_typeof(substr) === 'Array')
                 return _mark_str_arr(substr, str, case_sensitive);
-            } else if (_typeof(substr) === 'String') {
+            if (_typeof(substr) === 'String')
                 return _mark_str(substr, str, case_sensitive);
-            }
+
         },
         _typeof: _typeof,
         inArray: inArray,
