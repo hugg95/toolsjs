@@ -21,7 +21,7 @@ ToolsJs provides some frequently used functions to improve your development effi
         <td>Object</td><td>Object</td><td>{name: 'victor'}</td>
     </tr>
     <tr>
-        <td>Array</td><td>Array</td><td></td>
+        <td>Array</td><td>Array</td><td>[1, 2, 3]</td>
     </tr>
     <tr>
         <td>String</td><td>String</td><td>empty string or string</td>
