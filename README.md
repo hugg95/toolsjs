@@ -2,11 +2,11 @@
 ToolsJs provides some frequently used functions to improve your development efficiency and reduce the amount of your code.
 
 # useage
-1. Include ToolsJs in your project by using `<script type="text/javascript" src="path/to/tools.js">`;
+1. Include ToolsJs in your project by using `<script type="text/javascript" src="dist/tools.min.js"></script>`;
 2. A global object named __Tools__ being added on __window__ object, all of the utility functions are bound on it;
 
 # functions
-1.`_typeof`: this function returns variable's actual runtime type. Sometimes you donot want to get the 'Object' when you using the default __typeof__ function on an array, but ___typeof__ can does, here is the mapping of variable and its actual runtime type when using ___typeof__:
+1.`_typeof`: this function returns variable's actual runtime type. Sometimes you donot want to get the `'Object'` when you using the default `typeof` function on an array, but `_typeof` can does, here is the mapping of variable and its actual runtime type when using `_typeof`:
 <table>
     <tr>
         <td>variable</td><td>type</td><td>example</td>
