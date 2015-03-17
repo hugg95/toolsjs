@@ -1,5 +1,6 @@
 /**
- * An utility functions collection of javascript.
+ * ToolsJs provides some frequently used functions to 
+ * improve your development efficiency and reduce the amount of your code.
  * @author victor.li
  * @date 2015/01/22
  * @version 1.0.0
@@ -10,7 +11,7 @@
 var Tools = (function(global, undefined) {
 
     /**
-     * get object's runtime type
+     * get object's actual runtime type
      */
     function _typeof(obj) {
 
@@ -106,6 +107,8 @@ var Tools = (function(global, undefined) {
 
     /**
      * determines whether the specified element is in the specified array
+     * if the specified element is in the specified array, return true,
+     * otherwise return false
      */
     function inArray(arr, ele) {
 
@@ -124,7 +127,9 @@ var Tools = (function(global, undefined) {
     };
 
     /**
-     * gets version of microsoft internet explorer
+     * gets version of Microsoft Internet Explorer
+     * this function will throw an error if the current browser
+     *  is not a Microsoft Internet Explorer
      */
     function getIEVersion() {
 
