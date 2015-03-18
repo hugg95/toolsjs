@@ -106,6 +106,26 @@ var Tools = (function(global, undefined) {
     };
 
     /**
+     * determines whether the input string is numeric
+     * @param string
+     * @return boolean
+     */
+    function isNumeric(string) {
+        var numeric = new RegExp(/^(\d+|\d+\.\d+)$/);
+        return numeric.test(string);
+    };
+
+    /**
+     * determines whether the input string is percentage
+     * @param string
+     * @return boolean
+     */
+    function isPercentage(string) {
+        var percentage = new RegExp(/^(\d+|\d+\.\d+)\%{1}$/);
+        return percentage.test(string);
+    };
+
+    /**
      * determines whether the specified element is in the specified array
      * if the specified element is in the specified array, return true,
      * otherwise return false
@@ -153,6 +173,8 @@ var Tools = (function(global, undefined) {
         },
         _typeof: _typeof,
         inArray: inArray,
+        isNumeric: isNumeric,
+        isPercentage: isPercentage,
         getIEVersion: getIEVersion
 
     };

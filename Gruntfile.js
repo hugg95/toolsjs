@@ -3,7 +3,8 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
     uglify: {
         options: {
-            mangle: true
+            mangle: true,
+            banner: '/*\n <%= pkg.name %> v<%= pkg.version %>\n Author: <%= pkg.author %> <%= pkg.homepage %>\n License: MIT \n*/\n'
         },
     dist: {
         files: {

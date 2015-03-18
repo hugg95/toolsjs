@@ -9,33 +9,33 @@ ToolsJs provides some frequently used functions to improve your development effi
 1.`_typeof`: this function returns variable's actual runtime type. Sometimes you donot want to get the `'Object'` when you using the default `typeof` function on an array, but `_typeof` can does, here is the mapping of variable and its actual runtime type when using `_typeof`:
 <table>
     <tr>
-        <td>__variable__</td><td>__type__</td><td>__example__</td>
+        <td>variable</td><td>type</td><td>example</td>
     </tr>
     <tr>
-        <td>`undefined`</td><td>undefined</td><td>undefined or uninitialized variable</td>
+        <td>undefined</td><td>undefined</td><td>undefined or uninitialized variable</td>
     </tr>
     <tr>
-        <td>`null`</td><td>null</td><td>null variable</td>
+        <td>null</td><td>null</td><td>null variable</td>
     </tr>
     <tr>
-        <td>`Object`</td><td>Object</td><td>{name: 'victor'}</td>
+        <td>Object</td><td>Object</td><td>{name: 'victor'}</td>
     </tr>
     <tr>
-        <td>`Array`</td><td>Array</td><td>[1, 2, 3]</td>
+        <td>Array</td><td>Array</td><td>[1, 2, 3]</td>
     </tr>
     <tr>
-        <td>`String`</td><td>String</td><td>empty string or string</td>
+        <td>String</td><td>String</td><td>empty string or string</td>
     </tr>
     <tr>
-        <td>`Number`</td><td>Number</td><td>1, 2.03</td>
+        <td>Number</td><td>Number</td><td>1, 2.03</td>
     </tr>
     <tr>
-        <td>`NaN`</td><td>NaN</td><td>variable that returns true when calling isNaN</td>
+        <td>NaN</td><td>NaN</td><td>variable that returns true when calling isNaN</td>
     </tr>
     <tr>
-        <td>`Date`</td><td>Date</td><td>Date variable</td>
+        <td>Date</td><td>Date</td><td>Date variable</td>
     </tr>
     <tr>
-        <td>`RegExp`</td><td>RegExp</td><td>RegExp variable</td>
+        <td>RegExp</td><td>RegExp</td><td>RegExp variable</td>
     </tr>
 </table>
