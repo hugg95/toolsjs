@@ -200,6 +200,7 @@ var Tools = (function(global, undefined) {
         inArray: inArray,
         isNumeric: isNumeric,
         isPercentage: isPercentage,
+        isDecimal: isDecimal,
         getIEVersion: getIEVersion
 
     };
