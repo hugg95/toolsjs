@@ -111,8 +111,10 @@ var Tools = (function(global, undefined) {
      * @return boolean
      */
     function isNumeric(string) {
+
         var numeric = new RegExp(/^(\d+|\d+\.\d+)$/);
         return numeric.test(string);
+
     };
 
     /**
@@ -121,8 +123,31 @@ var Tools = (function(global, undefined) {
      * @return boolean
      */
     function isPercentage(string) {
+
         var percentage = new RegExp(/^(\d+|\d+\.\d+)\%{1}$/);
         return percentage.test(string);
+
+    };
+
+    /**
+     * determines whether the input value is decimal
+     * @param input
+     * @return boolean
+     */
+    function isDecimal(input) {
+
+        var type = _typeof(input);
+        if ('String' !== type && 'Number' !== type) {
+            throw new Error('the inputted value cannot be converted to valid number');
+        }
+
+        var decimal = new RegExp(/^\d+\.\d+$/);
+        if ('Number' === _typeof(input)) {
+            input += '';
+        }
+
+        return decimal.test(input);
+
     };
 
     /**
