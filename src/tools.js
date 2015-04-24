@@ -15,55 +15,34 @@ var Tools = (function(global, undefined) {
      */
     function _typeof(obj) {
 
-        if (!Object.constructor.name)
-            return _compatibleTypeof(obj);
-
-        return _modernTypeof(obj);
-
-    };
-
-    /**
-     * typeof function for modern internet explorer
-     */
-    function _modernTypeof(obj) {
-
-        if (typeof obj === 'undefined')
-            return 'undefined';
-        if (obj === null)
+        if (obj === null) {
             return 'null';
-        var _obj = obj,
-            type = _obj.constructor.name;
-        if (type === 'Number' && isNaN(_obj))
-            return 'NaN';
-
-        return type;
-
-    };
-
-    /**
-     * IE compatible
-     */
-    function _compatibleTypeof(obj) {
-
-        if (typeof obj === 'undefined')
-            return 'undefined';
-        if (obj === null)
-            return 'null';
-        var _obj = obj,
-            type = {}.toString.call(_obj);
-        if (type.search(/Array/) > -1)
-            return 'Array';
-        if (type.search(/String/) > -1)
-            return 'String';
-        if (type.search(/Number/) > -1 && isNaN(_obj)) {
-            return 'NaN';
-        } else if (type.search(/Number/) > -1) {
-            return 'Number';
         }
-        if (type.search(/Date/) > -1)
-            return 'Date';
-        if (type.search(/RegExp/) > -1)
-            return 'RegExp';
+        if (obj === undefined) {
+            return 'undefined';
+        }
+        var type;
+        if (Object.constructor.name) {
+            type = obj.constructor.name.toLowerCase();
+            if (type === 'number' && isNaN(obj)) {
+                return 'NaN';
+            }
+            return type;
+        } else {
+            type = Object.prototype.toString.call(obj);
+            if (type.search(/Object/) > -1) return 'object';
+            if (type.search(/Array/) > -1) return 'array';
+            if (type.search(/String/) > -1) return 'string';
+            if (type.search(/Function/) > -1) return 'function';
+            if (type.search(/Date/) > -1) return 'date';
+            if (type.search(/Number/) > -1) {
+                if (isNaN(obj)) {
+                    return 'NaN';
+                }
+                return 'number';
+            }
+            if (type.search(/RegExp/) > -1) return 'regexp';
+        }
 
     };
 
@@ -156,34 +135,20 @@ var Tools = (function(global, undefined) {
      * otherwise return false
      */
     function inArray(arr, ele) {
-
-        try {
-            getIEVersion();
-            var i = 0, len = arr.length;
-            for (; i < len; i++) {
-                if (arr[i] === ele)
-                    return true;
+        if (!(arr instanceof Array)) {
+            throw new Error('parameter \'arr\' must be an valid Array instance');
+        }
+        if (arr.indexOf) {
+            return arr.indexOf(ele) === -1 ? false : true;
+        }
+        var i = 0, len = arr.length;
+        for (; i < len; i++) {
+            if (arr[i] === ele) {
+                return true;
             }
-        } catch (e) {
-            return (arr.indexOf(ele) !== -1);
         }
 
         return false;
-    };
-
-    /**
-     * gets version of Microsoft Internet Explorer
-     * this function will throw an error if the current browser
-     *  is not a Microsoft Internet Explorer
-     */
-    function getIEVersion() {
-
-        if (!document.documentMode)
-            throw new Error('The current browser is
-                    not a microsoft internet explorer');
-
-        return 'IE' + document.documentMode;
-
     };
 
     return {
@@ -200,9 +165,7 @@ var Tools = (function(global, undefined) {
         inArray: inArray,
         isNumeric: isNumeric,
         isPercentage: isPercentage,
-        isDecimal: isDecimal,
-        getIEVersion: getIEVersion
-
+        isDecimal: isDecimal
     };
 
 })(window);
